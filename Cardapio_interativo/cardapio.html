@@ -136,6 +136,16 @@ body::after {
   padding:0 var(--sx) 52px;
 }
 
+@media (min-width:600px) {
+  body { background-color:#CFC3AF; }
+  .hero-wrap, .page {
+    box-shadow:0 0 60px rgba(74,44,23,.18), 0 2px 8px rgba(74,44,23,.10);
+  }
+  .hero-wrap { border-radius:16px 16px 0 0; overflow:hidden; }
+  .page      { border-radius:0 0 16px 16px; overflow:hidden; padding-bottom:40px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ═══════════════════════════════════════════════════════════
    HEADER — capa do livro de receitas
 ═══════════════════════════════════════════════════════════ */
@@ -149,6 +159,8 @@ header {
   position:relative;
   display:block;
   line-height:0;
+  max-width:480px;
+  margin:0 auto;
 }
 .hero-img {
   width:100%;

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Vitor/.claude/projects/c--Users-Vitor-Desktop-MeuProjetoXquads-02-Clientes-Ativos-Caseirinho-Ana/memory/**)",
+      "Bash(python3 -c \"from PIL import Image; img=Image.open\\('c:/Users/Vitor/Desktop/MeuProjetoXquads/02_Clientes_Ativos/Caseirinho_Ana/Logotipo_oficial/nova-foto-hero.png'\\); print\\(img.size\\)\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Vitor\\.claude\\projects\\c--Users-Vitor-Desktop-MeuProjetoXquads-02-Clientes-Ativos-Caseirinho-Ana\\memory"
+    ]
+  }
+}

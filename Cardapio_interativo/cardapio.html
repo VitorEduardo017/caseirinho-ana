@@ -358,6 +358,16 @@ header .sub {
 }
 .chapter.classic .chapter-title { color:var(--terra); }
 .chapter.premium .chapter-title { color:var(--rapadura); }
+.chapter.fitness .chapter-title { color:#3D6B3D; }
+.chapter-rule.fitness::before, .chapter-rule.fitness::after {
+  background:linear-gradient(90deg,transparent,rgba(90,138,90,.30),transparent);
+}
+.chapter-rule.fitness span { color:#5A8A5A; font-size:16px; }
+.card.fitness .card-badge { background:#4A7C4A; color:#fff; }
+.card.fitness .btn-wpp {
+  background:linear-gradient(135deg, #3D6B3D 0%, #5A8A5A 50%, #7DB87D 100%);
+  color:#fff;
+}
 
 .chapter-price-tag {
   display:inline-flex; align-items:baseline; gap:4px;
@@ -825,6 +835,31 @@ footer p {
 
   <div class="grid" id="grid-classic"></div>
 
+  <!-- Divisor fitness -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 120 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="14" x2="40" y2="14" stroke="#5A8A5A" stroke-width="1"/>
+      <path d="M50 14 Q55 6 60 14 Q65 22 70 14" stroke="#5A8A5A" stroke-width="1.2" fill="none"/>
+      <path d="M56 14 Q58 8 60 14" stroke="#5A8A5A" stroke-width="1" fill="none" opacity=".6"/>
+      <path d="M60 14 Q62 8 64 14" stroke="#5A8A5A" stroke-width="1" fill="none" opacity=".6"/>
+      <line x1="80" y1="14" x2="120" y2="14" stroke="#5A8A5A" stroke-width="1"/>
+      <circle cx="60" cy="14" r="2" fill="#7DB87D" opacity=".8"/>
+    </svg>
+  </div>
+
+  <!-- ══ SEÇÃO: LINHA FITNESS ══════════════════════════════ -->
+  <div class="chapter fitness">
+    <div class="chapter-rule fitness"><span>🌿</span></div>
+    <h2 class="chapter-title">Linha Fitness</h2>
+    <p style="font-family:'Caveat',cursive;font-size:14px;color:#5A8A5A;margin-top:4px;">Sabor sem culpa — ingredientes naturais e leves</p>
+    <div class="chapter-price-tag" style="color:#5A8A5A;">
+      <span>Todos por</span>
+      <strong style="color:#3D6B3D;">R$&nbsp;40</strong>
+    </div>
+  </div>
+
+  <div class="grid" id="grid-fitness"></div>
+
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
   <footer>
     <div class="footer-btns">
@@ -945,6 +980,33 @@ const classic = [
     desc:   'Pontinho de chocolate em cada pedaço. A textura levemente crocante por dentro é o segredo desta receita clássica que conquista todos.',
     img:    IMGS + 'Bolo formigueiro.jpg',
     badge:  ''
+  },
+  {
+    fancy:  'Ouro de Milho',
+    flavor: 'Milho',
+    price:  40,
+    desc:   'Amarelinho, macio e com aquele sabor de festa junina que todo mundo ama. Receita simples, resultado irresistível — puro conforto de roça.',
+    img:    null,
+    badge:  ''
+  }
+];
+
+const fitness = [
+  {
+    fancy:  'Fitness de Banana',
+    flavor: 'Banana · Fit · Sem glúten',
+    price:  40,
+    desc:   'Leveza e sabor sem abrir mão do prazer. Banana madura, ingredientes selecionados e zero culpa — o equilíbrio perfeito para o seu dia.',
+    img:    null,
+    badge:  'Fitness'
+  },
+  {
+    fancy:  'Fitness de Maçã',
+    flavor: 'Maçã · Fit · Sem glúten',
+    price:  40,
+    desc:   'Maçã fresca e especiarias naturais em uma receita leve e nutritiva. Sabor delicado, textura úmida — ideal para quem cuida da alimentação.',
+    img:    null,
+    badge:  'Fitness'
   }
 ];
 
@@ -1036,8 +1098,14 @@ function buildCard(p, isPremium) {
 
 const gc = document.getElementById('grid-classic');
 const gp = document.getElementById('grid-premium');
-classic.forEach(p  => gc.appendChild(buildCard(p, false)));
-premium.forEach(p  => gp.appendChild(buildCard(p, true)));
+const gf = document.getElementById('grid-fitness');
+classic.forEach(p => gc.appendChild(buildCard(p, false)));
+premium.forEach(p => gp.appendChild(buildCard(p, true)));
+fitness.forEach(p => {
+  const card = buildCard(p, false);
+  card.classList.add('fitness');
+  gf.appendChild(card);
+});
 
 /* ══════════════════════════════════════════════════════════
    MODAL LOGIC
